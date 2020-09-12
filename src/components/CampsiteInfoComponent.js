@@ -26,12 +26,12 @@ class CampsiteInfo extends Component {
               <div>
                 <p>{comment.text}</p>
                 <p>
-                  -- {comment.author},{' '}
-                  {new Intl.DateTimeFormat('en-US', {
+                  {`-- ${comment.author},
+                  ${new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: '2-digit',
-                  }).format(new Date(Date.parse(comment.date)))}
+                  }).format(new Date(Date.parse(comment.date)))}`}
                 </p>
               </div>
             );
