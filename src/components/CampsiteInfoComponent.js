@@ -53,9 +53,8 @@ function RenderComments({ comments }) {
 class CommentForm extends Component {
   render() {
     return (
-      <Button outline className='fa fa-pencil fa-lg'>
-        {' '}
-        Submit Comment
+      <Button outline>
+        <i className='fa fa-pencil fa-lg' /> Submit Comment
       </Button>
     );
   }
