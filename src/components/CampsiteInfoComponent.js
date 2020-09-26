@@ -12,7 +12,11 @@ import {
   ModalBody,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LocalForm, Control } from 'react-redux-form';
+import { LocalForm, Control, Errors } from 'react-redux-form';
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
 
 function RenderCampsite({ campsite }) {
   return (
@@ -60,9 +64,14 @@ class CommentForm extends Component {
 
     this.state = {
       isModalOpen: false,
+      author: '',
+      touched: {
+        author: false,
+      },
     };
 
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggleModal() {
@@ -110,6 +119,22 @@ class CommentForm extends Component {
                   name='author'
                   className='form-control'
                   placeholder='Your name'
+                  validators={{
+                    required,
+                    minLength: minLength(2),
+                    maxLength: maxLength(15),
+                  }}
+                />
+                <Errors
+                  className='text-danger'
+                  model='.author'
+                  show='touched'
+                  component='div'
+                  messages={{
+                    required: 'Required',
+                    minLength: 'Must be at least 2 characters',
+                    maxLength: 'Must be 15 characters or less',
+                  }}
                 />
               </div>
               <div className='form-group'>
