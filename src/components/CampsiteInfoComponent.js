@@ -7,6 +7,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
+  Label,
   Modal,
   ModalHeader,
   ModalBody,
@@ -97,7 +98,7 @@ class CommentForm extends Component {
           <ModalBody>
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
               <div className='form-group'>
-                <label htmlFor='rating'>Rating</label>
+                <Label htmlFor='rating'>Rating</Label>
                 <Control.select
                   model='.rating'
                   id='rating'
@@ -112,7 +113,7 @@ class CommentForm extends Component {
                 </Control.select>
               </div>
               <div className='form-group'>
-                <label htmlFor='rating'>Your Name</label>
+                <Label htmlFor='rating'>Your Name</Label>
                 <Control.text
                   model='.author'
                   id='author'
@@ -138,7 +139,7 @@ class CommentForm extends Component {
                 />
               </div>
               <div className='form-group'>
-                <label htmlFor='text'>Comment</label>
+                <Label htmlFor='text'>Comment</Label>
                 <Control.textarea
                   model='.text'
                   id='text'
